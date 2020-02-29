@@ -1,3 +1,3 @@
 Nova.booting((Vue, router, store) => {
-    Vue.component('nova-nav-builder-tool', require('./components/Tool'))
+    Vue.component('nova-tree-builder-resource-tool', require('./components/ResourceTool'))
 });

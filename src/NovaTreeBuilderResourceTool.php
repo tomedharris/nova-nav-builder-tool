@@ -1,10 +1,10 @@
 <?php
 
-namespace Tomedharris\NovaNavBuilderTool;
+namespace Tomedharris\NovaTreeBuilderTool;
 
 use Laravel\Nova\ResourceTool;
 
-class NovaNavBuilderTool extends ResourceTool
+class NovaTreeBuilderResourceTool extends ResourceTool
 {
     /**
      * Get the displayable name of the resource tool.
@@ -13,7 +13,7 @@ class NovaNavBuilderTool extends ResourceTool
      */
     public function name()
     {
-        return 'Nav Builder';
+        return 'Tree Builder';
     }
 
     /**
@@ -23,6 +23,6 @@ class NovaNavBuilderTool extends ResourceTool
      */
     public function component()
     {
-        return 'nova-nav-builder-tool';
+        return 'nova-tree-builder-resource-tool';
     }
 }

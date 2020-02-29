@@ -1,5 +1,5 @@
 {
-    "name": "tomedharris/nova-nav-builder-tool",
+    "name": "tomedharris/nova-tree-builder-tool",
     "description": "A Laravel Nova resource tool.",
     "keywords": [
         "laravel",
@@ -7,17 +7,27 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",
+        "laravel/nova": "~2.0",
+        "illuminate/contracts": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Tomedharris\\NovaNavBuilderTool\\": "src/"
+            "Tomedharris\\NovaTreeBuilderTool\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tomedharris\\NovaTreeBuilderTool\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Tomedharris\\NovaNavBuilderTool\\ToolServiceProvider"
+                "Tomedharris\\NovaTreeBuilderTool\\ToolServiceProvider"
             ]
         }
     },
@@ -25,5 +35,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ]
 }

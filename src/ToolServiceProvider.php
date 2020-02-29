@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomedharris\NovaNavBuilderTool;
+namespace Tomedharris\NovaTreeBuilderTool;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -21,8 +21,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-nav-builder-tool', __DIR__ . '/../dist/js/tool.js');
-            Nova::style('nova-nav-builder-tool', __DIR__ . '/../dist/css/tool.css');
+            Nova::script('nova-tree-builder-tool', __DIR__ . '/../dist/js/tool.js');
+            Nova::style('nova-tree-builder-tool', __DIR__ . '/../dist/css/tool.css');
         });
     }
 
@@ -38,8 +38,8 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/nova-nav-builder-tool')
-            ->namespace('Tomedharris\\NovaNavBuilderTool\\Http\\Controllers')
+            ->prefix('nova-vendor/nova-tree-builder-tool')
+            ->namespace('Tomedharris\\NovaTreeBuilderTool\\Http\\Controllers')
             ->group(__DIR__ . '/../routes/api.php');
     }
 

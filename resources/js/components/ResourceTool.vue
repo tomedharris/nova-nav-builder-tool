@@ -1,7 +1,7 @@
 <template>
   <div>
     <heading class="mb-6">
-      Nav Builder
+      Tree Builder
     </heading>
 
     <!-- <pre v-text="JSON.stringify(nav, null, 2)" /> -->
@@ -43,13 +43,13 @@ export default {
     },
     methods: {
       fetchNavigationElements() {
-        axios.get(`/nova-vendor/nova-nav-builder-tool/nav/${this.resourceId}/structure`)
+        axios.get(`/nova-vendor/nova-tree-builder-tool/nav/${this.resourceId}/structure`)
           .then(({data}) => {
             this.nav = data;
           });
       },
       onClick() {
-        axios.put(`/nova-vendor/nova-nav-builder-tool/nav/${this.resourceId}/structure`, this.nav);
+        axios.put(`/nova-vendor/nova-tree-builder-tool/nav/${this.resourceId}/structure`, this.nav);
       }
     },
 }

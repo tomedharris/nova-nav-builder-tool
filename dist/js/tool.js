@@ -495,7 +495,7 @@ module.exports = __webpack_require__(18);
 /***/ (function(module, exports, __webpack_require__) {
 
 Nova.booting(function (Vue, router, store) {
-    Vue.component('nova-nav-builder-tool', __webpack_require__(5));
+    Vue.component('nova-tree-builder-tool', __webpack_require__(5));
 });
 
 /***/ }),
@@ -678,14 +678,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     fetchNavigationElements: function fetchNavigationElements() {
       var _this = this;
 
-      axios.get("/nova-vendor/nova-nav-builder-tool/nav/" + this.resourceId + "/structure").then(function (_ref) {
+      axios.get("/nova-vendor/nova-tree-builder-tool/nav/" + this.resourceId + "/structure").then(function (_ref) {
         var data = _ref.data;
 
         _this.nav = data;
       });
     },
     onClick: function onClick() {
-      axios.put("/nova-vendor/nova-nav-builder-tool/nav/" + this.resourceId + "/structure", this.nav);
+      axios.put("/nova-vendor/nova-tree-builder-tool/nav/" + this.resourceId + "/structure", this.nav);
     }
   }
 });
