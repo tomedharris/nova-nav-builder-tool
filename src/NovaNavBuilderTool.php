@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomeh\NovaNavBuilderTool;
+namespace Tomedharris\NovaNavBuilderTool;
 
 use Laravel\Nova\ResourceTool;
 

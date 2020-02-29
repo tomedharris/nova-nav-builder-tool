@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Tomeh\\NovaNavBuilderTool\\": "src/"
+            "Tomedharris\\NovaNavBuilderTool\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Tomeh\\NovaNavBuilderTool\\ToolServiceProvider"
+                "Tomedharris\\NovaNavBuilderTool\\ToolServiceProvider"
             ]
         }
     },

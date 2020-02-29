@@ -1,11 +1,11 @@
 <?php
 
-namespace Tomeh\NovaNavBuilderTool;
+namespace Tomedharris\NovaNavBuilderTool;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class ToolServiceProvider extends ServiceProvider
 {
@@ -21,8 +21,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-nav-builder-tool', __DIR__.'/../dist/js/tool.js');
-            Nova::style('nova-nav-builder-tool', __DIR__.'/../dist/css/tool.css');
+            Nova::script('nova-nav-builder-tool', __DIR__ . '/../dist/js/tool.js');
+            Nova::style('nova-nav-builder-tool', __DIR__ . '/../dist/css/tool.css');
         });
     }
 
@@ -38,8 +38,9 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-                ->prefix('nova-vendor/nova-nav-builder-tool')
-                ->group(__DIR__.'/../routes/api.php');
+            ->prefix('nova-vendor/nova-nav-builder-tool')
+            ->namespace('Tomedharris\\NovaNavBuilderTool\\Http\\Controllers')
+            ->group(__DIR__ . '/../routes/api.php');
     }
 
     /**

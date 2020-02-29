@@ -1,8 +1,5 @@
 <?php
 
-use Kamboo\Nav\Nav;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/nav/{id}/root-elements', function (Request $request, int $id) {
-    // TODO make this flexible wrt number of levels.
-    return Nav::query()
-        ->with(['elements' => function (Builder $query) {
-            $query->root();
-        }])
-        ->with('elements.children')
-        ->with('elements.children.children')
-        ->findOrFail($id)
-        ->elements;
-});
+Route::get('/nav/{navId}/structure', 'NavController@structure');
+
+Route::put('/nav/{navId}/structure', 'NavController@updateStructure');

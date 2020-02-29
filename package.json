@@ -15,6 +15,6 @@
     },
     "dependencies": {
         "vue": "^2.5.0",
-        "vue-draggable-nested-tree": "^2.2.18"
+        "vuedraggable": "^2.23.2"
     }
 }

@@ -4,52 +4,53 @@
       Nav Builder
     </heading>
 
-    <draggable-tree
+    <!-- <pre v-text="JSON.stringify(nav, null, 2)" /> -->
+
+    <nested-draggable
       v-if="nav"
-      :data="nav"
-      draggable
-    >
-      <div slot-scope="{data, store}">
-        <template v-if="!data.isDragPlaceHolder">
-          <b
-            v-if="data.children && data.children.length"
-            @click="store.toggleOpen(data)"
-          ><span v-if="data.open">-</span><span v-else>+</span>&nbsp;</b>
-          <span v-text="data.text" />
-        </template>
-      </div>
-    </draggable-tree>
+      :nav="nav"
+    />
+
+    <div class="flex w-full justify-end mt-2">
+      <button
+        class="btn btn-default btn-icon bg-primary pull-right text-white"
+        @click="onClick"
+      >
+        Update
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import {DraggableTree} from 'vue-draggable-nested-tree'
+// import {Draggable} from 'vuedraggable'
+import NestedDraggable from "./NestedDraggable";
 export default {
     components: {
-        DraggableTree,
+      NestedDraggable,
     },
-    props: ['resourceName', 'resourceId', 'field'],
+    props: {
+      resourceName: {type: String, required: true},
+      resourceId: {type: [Number, String], required: true},
+    },
     data() {
-        return {
-            nav: null,
-        };
+      return {
+        nav: null,
+      };
     },
     mounted() {
-        this.fetchNavigationElements();
+      this.fetchNavigationElements();
     },
     methods: {
-        fetchNavigationElements() {
-            axios.get(`/nova-vendor/nova-nav-builder-tool/nav/${this.resourceId}/root-elements`)
-                .then(({data}) => {
-                  this.nav = data.map(this.mapApiNavToUi);
-                });
-        },
-        mapApiNavToUi({name, children}) {
-          return {
-            text: name,
-            children: children.map(this.mapApiNavToUi),
-          }
-        },
+      fetchNavigationElements() {
+        axios.get(`/nova-vendor/nova-nav-builder-tool/nav/${this.resourceId}/structure`)
+          .then(({data}) => {
+            this.nav = data;
+          });
+      },
+      onClick() {
+        axios.put(`/nova-vendor/nova-nav-builder-tool/nav/${this.resourceId}/structure`, this.nav);
+      }
     },
 }
 </script>
